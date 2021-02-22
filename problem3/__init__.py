@@ -13,7 +13,20 @@ def erats_sieve(upper_bound):
 
 
 def prime_factors(n):
-    factors = [i for i in erats_sieve(n) if n % i == 0]
+    factors = []
+
+    while n % 2 == 0:
+        factors.append(2)
+        n /= 2
+
+    for i in range(3, int(math.sqrt(n)) + 1, 2):
+        while n % i == 0:
+            factors.append(int(i))
+            n /= i
+
+    if n > 2:
+        factors.append(int(n))
+
     return factors
 
 
