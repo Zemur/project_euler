@@ -4,13 +4,16 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 # find the sum of the even-valued terms.
 
-def fib(num_terms=None, highest_term=None):
-    a, b = 1, 2
+def fib(num_terms=None, highest_term=None, len_term=None):
+    a, b = 1, 1
 
     if num_terms is not None and highest_term is not None:
         print("Enter either num_terms or highest_term, not both")
     elif num_terms is None and highest_term is None:
-        print("Enter either num_terms or highest_term")
+        #print("Enter either num_terms or highest_term")
+        while True:
+            yield a
+            a, b = b, a + b
     elif num_terms is not None:
         for _ in range(num_terms):
             yield a
